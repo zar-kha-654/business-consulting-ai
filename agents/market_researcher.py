@@ -5,18 +5,11 @@ from groq_config import get_llm
 def create_market_researcher():
 
     return Agent(
-        role="Market Research Specialist",
+        role="Market Researcher",
 
-        goal=(
-            "Research the target industry, market trends, demand conditions, "
-            "growth opportunities, market barriers, and relevant business conditions."
-        ),
+        goal="Analyze the target market, trends, opportunities, and barriers.",
 
-        backstory=(
-            "You are an experienced market research consultant. "
-            "You analyze industries objectively and distinguish facts, "
-            "assumptions, and uncertainties."
-        ),
+        backstory="Experienced business market researcher.",
 
         llm=get_llm(),
 
