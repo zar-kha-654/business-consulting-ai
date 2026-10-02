@@ -12,22 +12,19 @@ def create_tasks(
 ):
 
     market_task = Task(
-        description=f"""
-        Analyze the market for the following business:
+       description=f"""
+Analyze this business:
 
-        {business_context}
+{business_context}
 
-        Research:
-        - industry conditions
-        - market trends
-        - demand drivers
-        - opportunities
-        - barriers
-        - important assumptions
-        - uncertainties
-
-        Clearly distinguish facts from assumptions.
-        """,
+Identify:
+- market
+- trends
+- demand
+- opportunities
+- barriers
+- assumptions
+"""
 
         expected_output="""
         A structured market analysis containing:
