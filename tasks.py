@@ -12,7 +12,7 @@ def create_tasks(
 ):
 
     market_task = Task(
-       description=f"""
+        description=f"""
 Analyze this business:
 
 {business_context}
@@ -24,157 +24,199 @@ Identify:
 - opportunities
 - barriers
 - assumptions
-"""
+""",
 
         expected_output="""
-        A structured market analysis containing:
-        1. Industry overview
-        2. Market trends
-        3. Demand drivers
-        4. Opportunities
-        5. Barriers
-        6. Important assumptions
-        7. Research limitations
-        """,
+A concise market analysis containing:
+- Industry overview
+- Market trends
+- Demand drivers
+- Opportunities
+- Barriers
+- Important assumptions
+- Research limitations
+
+Keep the analysis concise and under 800 words.
+""",
 
         agent=market_agent,
     )
 
+
     customer_task = Task(
         description=f"""
-        Analyze the target customers for this business:
+Analyze the target customers for this business:
 
-        {business_context}
+{business_context}
 
-        Identify:
-        - customer segments
-        - primary target customer
-        - customer needs
-        - pain points
-        - buying motivations
-        - objections
-        - purchasing behavior
-        - potential value proposition
-        """,
+Identify:
+- customer segments
+- primary target customer
+- customer needs
+- pain points
+- buying motivations
+- objections
+- purchasing behavior
+- potential value proposition
+""",
 
         expected_output="""
-        A structured customer analysis with customer segments,
-        pain points, motivations, objections, buying behavior,
-        and potential value propositions.
-        """,
+A concise customer analysis containing:
+- Customer segments
+- Customer needs
+- Pain points
+- Motivations
+- Objections
+- Buying behavior
+- Value proposition
+
+Keep the analysis concise and under 800 words.
+""",
 
         agent=customer_agent,
     )
 
+
     competitor_task = Task(
         description=f"""
-        Conduct competitive analysis for:
+Conduct competitive analysis for:
 
-        {business_context}
+{business_context}
 
-        Identify:
-        - direct competitors
-        - indirect competitors
-        - competitor positioning
-        - pricing approaches where available
-        - strengths
-        - weaknesses
-        - differentiation opportunities
-        """,
+Identify:
+- direct competitors
+- indirect competitors
+- competitor positioning
+- pricing approaches where available
+- strengths
+- weaknesses
+- differentiation opportunities
+""",
 
         expected_output="""
-        A structured competitive landscape analysis with
-        competitors, positioning, strengths, weaknesses,
-        and potential differentiation opportunities.
-        """,
+A concise competitive analysis containing:
+- Direct competitors
+- Indirect competitors
+- Positioning
+- Pricing where available
+- Strengths
+- Weaknesses
+- Differentiation opportunities
+
+Keep the analysis concise and under 800 words.
+""",
 
         agent=competitor_agent,
     )
 
+
     financial_task = Task(
         description=f"""
-        Analyze the business model and financial logic for:
+Analyze the business model and financial logic for:
 
-        {business_context}
+{business_context}
 
-        Evaluate:
-        - revenue streams
-        - pricing logic
-        - major cost categories
-        - unit economics assumptions
-        - customer acquisition considerations
-        - break-even assumptions where possible
-        - financial risks
+Evaluate:
+- revenue streams
+- pricing logic
+- major cost categories
+- unit economics assumptions
+- customer acquisition considerations
+- break-even assumptions
+- financial risks
 
-        Do not invent precise financial facts.
-        Clearly label estimates and assumptions.
-        """,
+Do not invent precise financial facts.
+Clearly label estimates and assumptions.
+""",
 
         expected_output="""
-        A structured business-model and financial analysis
-        containing revenue streams, pricing logic, cost
-        categories, assumptions, risks, and feasibility considerations.
-        """,
+A concise business-model and financial analysis containing:
+- Revenue streams
+- Pricing logic
+- Cost categories
+- Unit economics assumptions
+- Customer acquisition considerations
+- Break-even assumptions
+- Financial risks
+
+Clearly label estimates and assumptions.
+Keep the analysis concise and under 800 words.
+""",
 
         agent=financial_agent,
     )
 
+
     strategy_task = Task(
         description="""
-        Develop a business strategy using the outputs of the
-        market, customer, competitor, and financial analysts.
+Develop a business strategy using the outputs from the
+market, customer, competitor, and financial analysts.
 
-        Create:
-        - strategic priorities
-        - positioning
-        - differentiation
-        - growth opportunities
-        - major risks
-        - mitigation approaches
-        - recommended experiments
-        - 90-day execution plan
-        """,
+Create:
+- strategic priorities
+- positioning
+- differentiation
+- growth opportunities
+- major risks
+- mitigation approaches
+- recommended experiments
+- 90-day execution plan
+""",
 
         expected_output="""
-        A coherent business strategy containing strategic priorities,
-        positioning, differentiation, opportunities, risks,
-        mitigation strategies, experiments, and a 90-day plan.
-        """,
+A concise business strategy containing:
+- Strategic priorities
+- Positioning
+- Differentiation
+- Growth opportunities
+- Major risks
+- Mitigation strategies
+- Recommended experiments
+- 90-day execution plan
+
+Keep the analysis concise.
+""",
 
         agent=strategy_agent,
     )
 
+
     report_task = Task(
         description="""
-        Create the final business strategy report using all previous
-        consultant outputs.
+Create the final business strategy report using the
+outputs from all previous consultants.
 
-        The report must contain:
+Include:
 
-        1. Executive Summary
-        2. Business Overview
-        3. Market Analysis
-        4. Customer Analysis
-        5. Competitive Landscape
-        6. Business Model
-        7. Financial Considerations
-        8. SWOT Analysis
-        9. Strategic Priorities
-        10. Risks and Mitigation
-        11. 90-Day Action Plan
-        12. Key Assumptions
-        13. Research Limitations
+1. Executive Summary
+2. Business Overview
+3. Market Analysis
+4. Customer Analysis
+5. Competitive Landscape
+6. Business Model
+7. Financial Considerations
+8. SWOT Analysis
+9. Strategic Priorities
+10. Risks and Mitigation
+11. 90-Day Action Plan
+12. Key Assumptions
+13. Research Limitations
 
-        Do not present uncertain information as established fact.
-        Make the report practical and readable.
-        """,
+Do not present uncertain information as established fact.
+Clearly distinguish facts, assumptions, and recommendations.
+Make the report practical and readable.
+""",
 
         expected_output="""
-        A polished professional business strategy report in Markdown.
-        """,
+A polished professional business strategy report in Markdown.
+
+Keep the final report concise enough to avoid unnecessary
+token usage while still covering all required sections.
+""",
 
         agent=report_agent,
     )
+
 
     return [
         market_task,
