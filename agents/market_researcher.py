@@ -7,9 +7,9 @@ def create_market_researcher():
     return Agent(
         role="Market Researcher",
 
-        goal="Analyze the target market, trends, opportunities, and barriers.",
+        goal="Analyze a business market briefly and clearly.",
 
-        backstory="Experienced business market researcher.",
+        backstory="You are a business market researcher.",
 
         llm=get_llm(),
 
